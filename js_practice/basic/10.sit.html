@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>느그자리</title>
+    <style>
+        table,tr,td {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+        td {
+            width: 50px;
+            height: 50px;
+            border : 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>느그자리</h1>
+    <script>
+        var people = prompt("몇명");
+        var seat = prompt("한줄에 몇명");
+        var resultP = Math.ceil(people/seat);
+        var seatNum = 0;
+        document.write("<table>");
+            for(i=0; i<resultP; i++) {
+                document.write("<tr>");
+                for(j=0; j<seat; j++) {
+                    if(seatNum < people) {
+                        document.write("<td>");
+                        document.write(seatNum = seatNum+1);
+                    }
+                    document.write("</td>");
+                }
+                document.write("</tr>");
+            };
+        document.write("</table>");
+    </script>
+</body>
+</html>

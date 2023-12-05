@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta charset="UTF-8">
+    <script>
+        // 인라인 이벤트 모델의 경우 위치에 영향 받지 않음
+        function changeImage(){
+            var sel = document.getElementById("sel");
+            var img = document.getElementById("myImg");
+            // img.id = sel.value;
+            console.log(img);
+            console.log(sel.value);
+            var index = sel.selectedIndex;
+            var imgPath = sel.option[index].value;
+            img.src = imgPath;
+        }
+    </script>
+</head>
+<body>   
+    문제2. select 박스를 이용해 선택한 과일의 이미지가 화면에 나타나도록 하고자 코드를 작성하였다. 이미지가 화면에 나타나도록 하나의 과일을 선택했지만 선택한 과일의 이미지가 나타나지 않았다. 화면에 이미지가 나타지 않은 원인과 조치내용을 작성하시오.  
+    <select id="sel" onchange="changeImage()">
+        <option value="images/Lemon.jpg">레몬</option>
+        <option value="./images/Lime.jpg">라임</option>
+        <option value="./images/Strawberry.jpg">딸기</option>
+    </select>
+    <img id="myImg">
+    <img id="images/Lemon.jpg">
+</body>
+</html>

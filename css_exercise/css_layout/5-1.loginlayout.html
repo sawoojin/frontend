@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 로그인</title>
+    <style>
+        table {
+            width: 260px;
+            padding: 2px;
+        }
+        td {
+            border: 1px solid black;
+        }
+        .btn {
+            width: 100%;
+            height: 100%;
+            /* padding: 5px; */
+        }
+        td:last-child {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="2">
+                <input type="text" placeholder="아이디를 입력해주세요.">
+            </td>
+            <!-- <td></td> -->
+            <td colspan="2" rowspan="2" class="btn"><button>로그인</button></td>
+            <!-- <td></td> -->
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="password" placeholder="패스워드를 입력해주세요.">
+            </td>
+            <!-- <td></td> -->
+            <!-- <td></td> -->
+            <!-- <td></td> -->
+        </tr>
+        <tr>
+            <td colspan="4">
+                회원가입 ID/PW찾기
+            </td>
+            <!-- <td></td> -->
+            <!-- <td></td> -->
+            <!-- <td></td> -->
+        </tr>
+    </table>
+</body>
+</html>

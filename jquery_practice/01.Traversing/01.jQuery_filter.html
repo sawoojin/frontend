@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery filter() 메소드1</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <ol>
+        <li class="first"><h2>1-1</h2></li>
+        <li class="second"><h2>1-2</h2></li>
+        <li class="first"><h2>1-3</h2></li>
+    </ol>
+    <ul>
+        <li class="third"><h2>2-1</h2></li>
+        <li class="second"><h2>2-2</h2></li>
+        <li class="third"><h2>2-3</h2></li>
+    </ul>
+    <script>
+        var li01 = $(".first").first();
+        var li02 = $(".second").first();
+        var li03 = $(".first").last();
+        var li04 = $(".third").first();
+        var li05 = $(".second").last();
+        var li06 = $(".third").last();
+        li01.css("color", "red");
+        li02.css("color", "orange");
+        li03.css("color", "yellow");
+        li04.css("color", "green");
+        li05.css("color", "blue");
+        li06.css("color", "navy");
+        // ol 과 ul 반복시키기
+        // li 순서 자체를 반복시키기? 조건문으로 eq()값을 1씩 증가시켜 반복..?
+        // 함수반복 - 공통
+    </script>
+</body>
+</html>

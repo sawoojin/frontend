@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery each() 메소드2</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+        }
+        fieldset {
+            width: 500px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    문제. <br>
+    학생정보 출력 버튼을 클릭시 테이블에 있는 학생 정보가 <br>
+    fieldset 안에 출력되도록 만드시오!
+    <table>
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td>홍길동</td>
+            <td>20</td>
+            <td>서울시</td>
+        </tr>
+        <tr>
+            <td>고길동</td>
+            <td>30</td>
+            <td>경기도</td>
+        </tr>
+        <tr>
+            <td>최길동</td>
+            <td>40</td>
+            <td>화성시</td>
+        </tr>
+        <tr>
+            <td>상길동</td>
+            <td>50</td>
+            <td>부천시</td>
+        </tr>
+    </table>
+    <fieldset>
+        <legend>출력</legend>
+        <span id="span1">
+        </span>
+    </fieldset>
+    <button id="btn">학생정보 출력</button>
+    <script>
+        // $("#btn").on("click", function() {
+        //         for(var i = 1; i < 5; i++ ) {
+        //             // var info = "";
+        //             var spanText = "";
+        //                 var info = $("tr").eq(i).children("td").text();
+        //                 spanText += info  + "<br>";
+        //                 $("#span1").html(spanText);
+        //             };
+        //         });
+        $("#btn").on("click", function() {
+            var spanText = "";
+            $("tr").each(function(index, item) {
+                if(index > 0) {
+                    var trTag = $(item);
+                    var name = trTag.children().first().text();
+                    var age = trTag.children().eq(1).text();
+                    var addr = trTag.children().last().text();
+                    spanText += name + "," + age + "," + addr + "<br>";
+                    $("#span1").html(spanText);
+                };
+            });
+        //     $("td").each(function(index, item) {
+        //         spanText += $(item).html();
+        //         if (index % 3 == 2) {
+        //             spanText += "<br>";
+        //         }else {
+        //             spanText += ", ";
+        //         };
+        //     });
+        //     $("#span1").html(spanText);
+        });
+    </script>
+</body>
+</html>

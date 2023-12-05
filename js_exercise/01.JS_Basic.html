@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 기본문법</title>
+</head>
+<body>
+    <h1>자바스크립트 기본문법</h1>
+    <p>
+        자바스크립트 주석 <br>
+        -한줄주석 : //      <br>
+        -범위주석 : /*  */  <br>
+        변수 선언   <br>
+        변수 종류 : 맴버변수와 지역변수 <br>
+        변수에 대한 자료형을 선언하지 않음(자료형은 존재) <br>
+    </p>
+    <pre>
+        1. 영어 대/소문자, 숫자, _(언더스코어), $ 사용가능
+        2. 첫글자 숫자 사용 불가
+        3. 공백을 포함한 특수문자 사용불가
+        4. 이름에 의미있는 단어의 조합 권장
+        5. 예약어 사용불가
+        6. 두 단어 이상 결합시 낙타표기법 권장
+        7. 한글 사용가능
+        8. 생성자 함수의 이름은 항상 대문자로 시작
+        9. 변수, 인스턴스, 함수, 메소드는 항상 소문자로 시작
+    </pre>
+        <h3>숫자(Number)</h3>
+        <p>
+            -정수형 숫자와 부동소수점 숫자로 구분 <br>
+            -내장객체로 Math객체 제공,기본 메소드 존재<br>
+            -Math.abs():절대값, Math.random():난수(랜덤값), Math.round()반올림, Math.floor():버림, Math.ceil():올림
+        </p>
+        <h3>문자열(String)</h3>
+        <p>
+            " "로 묶여있는 리터럴값, 내장객체 String이며 기본적인 메소드가 존재<br>
+            toUpperCase(), toLowerCase(), length, indexOf(), lastIndex(), substring(), split(), ...
+        </p>
+        <h3>형 변환</h3>
+        <h5>숫자 -> 문자열</h5>
+            1. 숫자와 문자열을 + 연산하게 되면 문자열이 우선 되어 숫자를 문자로 변환<br>
+            2. 강제 형변환 : String() 생성자 함수 이용
+        <h5>문자열 -> 숫자</h5>
+        <p>
+            숫자, 문자 + 이외의 사칙연산시 숫자가 우선되어 문자를 숫자로 변환 <br>
+            강제 형변환 함수 이용 : Number(), parseInt() 등
+        </p>
+        <h3>제어문</h3>
+        <p>
+            1. 조건문 : if, if~else, else if, switch <br>
+            2. 반복문 : for, while, do~while, for in <br>
+            3. 분기문 : contine, break <br>
+        </p>
+        <script>
+            // while문
+            // 초기식은 바깥에 
+            // while(조건식) {
+            //      증감식은 중괄호 안에
+            // }
+            var j = 0;
+            while(j < 10) {
+                console.log((j+1)+"번째 while문 실행중");
+                if(j>1) break;
+                // continue;
+                j++;
+            }
+            // for문
+            // 초기식 ; 조건식 ; 증감식
+            // 반복하는데 필요한 변수 선언 ; 반복하는 횟수 ; 반복하도록 증가하는
+            // for(var i = 1 ; i < 11 ; i++) {
+            //     console.log("반복문"+i+"번째 실행중입니다.");
+                // 동작 순서 첫번째에는 i = 1 -> 조건식을 따진 후 참이면 중괄호 안에 코드 실행
+                // -> 코드 실행 후 증감식에서 증가 i는 값이 2가 됨.
+                // 그 다음 동작은 i = 2 -> 조건식을 따진 후 참이면 중괄호 안에 코드 실행
+                // -> 코드 실행 후 증감식에서 증가 i는 값이 3이 됨.
+                // -> 계속 반복 후 i의 값이 11이 되었을 때까지 반복 후, i 값이 12가 되면 반복문에서 빠져나옴.
+            // }
+            //형 변환 
+            //var check = confirm("확인하시겠습니까?");
+            // console.log(check);
+            // if(check) {
+            //     for(var i = 0; i < 10; i++) {
+            // var result = Math.floor(Math.random()*10+1);
+            // console.log(result);
+            //     }
+            // }
+            //var check = prompt("값을 입력해주세요.");
+            // pormpt은 문자열로 값을 반환시킨다.
+            switch(check) {
+                case "1" : console.log("1을 입력하셨습니다."); break;
+                case "2" : console.log("2을 입력하셨습니다."); break;
+                case "3" : console.log("3을 입력하셨습니다."); break;
+                default : console.log("1~3사이의 수 입력");
+            }
+
+            if(check === 1) {
+            console.log("1을 입력하셨습니다.");
+            }else if(check === 2) {
+                console.log("2을 입력하셨습니다.");
+            }else if(check === 3) {
+                console.log("3을 입력하셨습니다.");
+            }else {
+                console.log("1~3 사이의 수를 입력해주세요.");
+            }
+            // == 는 값이 같으면 true를 반환한다 데이터 형식이 다를 경우 자동 형 변환을 시도한다.
+            // === 는 값과 데이터 형식이 일치해야만 true를 반환한다. 형 변환이 발생하지 않는다.
+            // if(check == 3) {
+                // console.log("행운의 숫자 : "+ 7);
+                var trans1 = 7+7
+                var trans2 = 7+"7"
+                var trans3 = "7"+7
+                var trans4 = 7+7+"7"
+                var trans5 = "7"+7+7
+                var trans6 = "7"+(7+7)
+                // console.log("7+7 = "+trans1);
+                // console.log("7+'7' = "+trans2);
+                // console.log("'7'+7 = "+trans3);
+                // console.log("7+7+'7' = "+trans4);
+                // console.log("'7'+7+7  = "+trans5);
+                // console.log("'7'+(7+7)  = "+trans6);
+                //형 변환 - 숫자로
+                var dataStr1 = "2022년도";
+                var dataStr2 = "제2022년도";
+                // dateStr1 = parseInt(dataStr1); // 2022로 바꿔줌
+                dataStr1 = Number(dataStr1);
+                // dateStr2 = parseInt(dataStr2);
+                dataStr2 = Number(dataStr2);
+                // console.log(dataStr1);
+                // console.log(dataStr2);
+                </script>
+                <script>
+                // /*else if(check == 2) {
+                //     var moonja = "Hello, Javasctipt, world";
+                //     var upperMoon = moonja.toUpperCase();
+                //     var lowMoon = moonja.toLowerCase();
+                //     var lengthMoon = moonja.length;
+                //     var lastindexMoon = moonja.lastIndexOf("l");
+                //     var subMoon = moonja.substring(0,5);
+                //     var splitMoon = moonja.split(",");
+                //     //-------------------
+                //     /*console.log("문자열 : " + moonja);
+                //     console.log("대문자 : " +upperMoon);sssssss
+                //     console.log("소문자 : " +lowMoon);
+                //     console.log("문자열 길이 : " +lengthMoon);
+                //     console.log("last문자 위치 : " +lastindexMoon);
+                //     console.log("범위 문자열 자르기 : " +subMoon);
+                //     console.log("조건 문자열 자르기 : " +splitMoon[1]);*/
+                //     // -----------------------------------
+                //     // var pNum = 30;
+                //     // var absVal = Math.abs(-4);
+                //     var randVal = Math.random()*10;
+                //     // console.log(absVal);
+                //     // var roundVal = Math.round(3.7);
+                //     // console.log(roundVal);
+                //     var floorVal = Math.floor(randVal);
+                //     // console.log(floorVal);
+                //     // var ceilVal = Math.ceil(5.2);
+                //     // console.log(ceilVal);
+                //     // for(var i = 0; i < 10; i++) {
+                //     //     var result = Math.floor(Math.random()*10+1);
+                //     //     console.log(result);
+                //     // }
+                //     //console.log(1+1);
+                //     /*console.log('Hello Javascript');
+                //     console.log(1.1+2.1);
+                //     console.log(25*15);*/
+                //     var num;
+                //     var number;
+                //     var sootjja;
+                //     num = 425;
+                //     number = 1113;
+                //     sootjja = 1.5;
+                //     num = 'Hello Javasctipt'
+                    //정수, 실수, 문자열, 참/거짓
+                    // number = true;
+                    // sootjja = false;
+                    // console.log(num,number,sootjja);
+                    // var result = (0==0);
+                    // console.log(result)
+                    // var temp = 1+1;
+                    // var temp = 4;
+                    // console.log(temp);
+                    //}   
+            </script>
+</body>
+</html>

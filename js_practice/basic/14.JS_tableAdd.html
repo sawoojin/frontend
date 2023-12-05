@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 추가하기</title>
+    <style>
+        table {
+            width: 450px;
+            border-collapse: collapse;
+        }
+        table,th {
+            border: 2px solid black;
+            /* height: 25px; */
+            /* font-weight: bold; */
+        }
+        tr,td {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>JS 테이블 추가하기</h2>
+    <p>
+        폼 입력양식에 값을 입력하고 추가 버튼을 누르면 입력값들이 아래의 테이블에 한 줄씩 추가되어야 함
+    </p>
+    <form action="" method="post">
+        <label for="">이름 : <input type="text" id="name"></label> <br>
+        <label for="">나이 : <input type="text"  id="age"></label> <br>
+        <label for="">
+            성별 : <input type="radio" name="gender" id="male">남 
+                    <input type="radio" name="gender" id="female">여
+        </label> <br>
+        <label for="">
+            전화번호 : <input type="text" id="phone">
+        </label> <br>
+        <label for="">
+            취미 : <input type="checkbox" name="hobby" id="movie" value="영화보기">영화보기
+            <input type="checkbox" name="hobby" id="music" >음악듣기
+            <input type="checkbox" name="hobby" id="sports">운동
+            <input type="checkbox" name="hobby" id="reading">독서
+            <input type="checkbox" name="hobby" id="climbing">등산
+        </label> <br>
+        <input type="button" id="addUser" value="추가하기"> <br><br>
+        <table id="tbl">
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>성별</th>
+                <th>전화번호</th>
+                <th>취미</th>
+            </tr>
+        </table>
+    </form>
+    <script>
+        document.querySelector("#addUser").addEventListener("click",function() {
+            var nameTag = document.querySelector("#name");
+            var ageTag = document.querySelector("#age");
+            var genderTag = document.querySelectorAll("[name=gender]");
+            var genderVal = "";
+            if(genderTag[0].checked) {
+                genderVal = "남";
+            }else if(genderTag[1].checked) {
+                genderVal = "여";
+            };
+            var phoneTag = document.querySelector("#phone");
+            var hbTag = document.querySelectorAll("[name=hobby]");
+            var hbVal = "";
+            for(var i = 0; i < hbTag.length; i++) {
+                if(hbTag[i].checked) {
+                    if(i == 0) {
+                        hbVal += "영화보기,";
+                    }else if(i == 1) {
+                        hbVal += "음악듣기,";
+                    }else if(i == 2) {
+                        hbVal += "운동,";
+                    }else if(i == 3) {
+                        hbVal += "독서,";
+                    }else if(i == 4) {
+                        hbVal += "등산,";
+                    };
+                };
+            };
+            if(hbTag[0].checked) {
+                hbVal += "영화보기";
+            }if(hbTag[1].checked) {
+                hbVal += "음악듣기";
+            }if(hbTag[2].checked) {
+                hbVal += "운동";
+            }if(hbTag[3].checked) {
+                hbVal += "독서";
+            }if(hbTag[4].checked) {
+                hbVal += "등산";
+            };
+            var nameVal = nameTag.value;
+            var ageVal = ageTag.value;
+            var phoneVal = phoneTag.value;
+            var tblTag = document.querySelector("#tbl");
+            tblTag.innerHTML += "<tr><td>"
+                + nameVal + "</td><td>"
+                + ageVal + "</td><td>"
+                + genderVal + "</td><td>"
+                + phoneVal + "</td><td>"
+                + hbVal +"</td></tr>";
+        });
+    </script>
+</body>
+</html>

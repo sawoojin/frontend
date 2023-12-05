@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2단 레이아웃 만들기</title>
+    <style>
+        /* div {
+            border: 1px solid black;
+        } */
+        #header {
+            width: 100%;
+            height: 100px;
+            background-color: aquamarine;
+        }
+        #main {
+            width: 100%;
+            height: 500px;
+        }
+            #main-layout1 {
+                width: 20%;
+                height: 100%;
+                float: left;
+                background-color: lightblue;
+            }
+            #main-layout2 {
+                width: 80%;
+                height: 100%;
+                float: left;
+                background-color: lightcyan;
+            }
+        #footer {
+            width: 100%;
+            height: 100px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <div id="header"></div>
+    <div id="main">
+        <div id="main-layout1"></div>
+        <div id="main-layout2"></div>
+    </div>
+    <div id="footer"></div>
+</body>
+</html>

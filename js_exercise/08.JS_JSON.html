@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>molru01</title>
+    <style>
+        table {
+            text-align: center;
+            width: 750px;
+            height: 220px;
+            /* border: 1px solid black; */
+        }
+    </style>
+</head>
+<body>
+    <!-- <h1>mol?ru01</h1> -->
+    <table border="true">
+        <tr>
+            <th>구분값</th>
+            <th>Javascript Object</th>
+            <th>Javascript Object Notation(JSON)</th>
+        </tr>
+        <tr>
+            <td>Boolean</td>
+            <td>var n = new Boolean(true);</td>
+            <td>var n = true;</td>
+        </tr>
+        <tr>
+            <td>Number</td>
+            <td>var n = new Number(3);</td>
+            <td>var n = 3;</td>
+        </tr>
+        <tr>
+            <td>String</td>
+            <td>var s = new String("hello");</td>
+            <td>var s = "hello";</td>
+        </tr>
+        <tr>
+            <td>Array</td>
+            <td>var arrs = new Array();</td>
+            <td>var arrs = [];</td>
+        </tr>
+        <tr>
+            <td>Object</td>
+            <td>var obj = new Object();</td>
+            <td>var obj = {};</td>
+        </tr>
+    </table>
+    <pre>
+    JSON을 사용하면 모든 데이터형을 서버와 주고 받을 수 있다. (사용목적) <br>
+    숫자, 문자열, Boolean, 배열, 객체, null, undefiend <br>
+    '{'로 시작하여 '}' 로 끝나며 그 속에 데이터를 표기하고 'key : value(값)' 쌍으로 구성된다.
+    {
+        "name" : "이순신",
+        "age" : 27,
+        "birth" : "1990-01-01",
+        "gender" : "남",
+        "married" : true,
+        "address" : "서울특별시 종로구",
+        "family" : ["아버지","어머니","동생"],
+    }
+    </pre>
+    <h3>CSV,XML,JSON</h3>
+    CSV방식 <br>
+    <p>
+        1, All that JSON <br>
+        2, JSON class <br>
+        3, More About JSON <br>
+    </p><br>
+    XML방식 <br>
+    <pre>
+        <notices>
+            <notice id="1" title="All that JSON"></notice>
+            <notice id="2" title="JSON class"></notice>
+            <notice id="3" title="More About JSON"></notice>
+        </notices>
+    </pre>
+    JSON방식 <br>
+    <pre>
+        [
+            {"id" : 1, "title" : "All that JSON"},
+            {"id" : 2, "title" : "JSON class"},
+            {"id" : 3, "title" : "More About JSON"},
+        ]
+    </pre>
+</body>
+</html>

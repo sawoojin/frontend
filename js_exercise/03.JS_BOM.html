@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>브라우저 객체 모델</title>
+</head>
+<body>
+    <h1>윈도우 객체</h1>
+    <p>window 객체는 자바스크립트의 최상위 객체이며 BOM, DOM으로 나뉜다.</p>
+    <h3>Window 객체</h3>
+    <p>브라우저 창에 대한 설정을 하는 객체</p>
+    <button onclick="callAlert();">alert 확인</button> <br><br>
+    <button onclick="callConfirm();">confirm 확인</button> <br><br>
+    <button onclick="callPrompt();">prompt 확인</button> <br><br>
+    <button onclick="callOpen();">open 확인</button> <br><br>
+    <button onclick="callClose();">close 확인</button> <br><br>
+    <button onclick="callTimeOut();">setTimeOut 확인</button> <br><br>
+    <button onclick="callInterval();">setInterval 확인</button> <br><br>
+    <button onclick="callClear();">ClearInterval 확인</button> <br><br>
+    <button onclick="startClock();">디지털 시계 On</button> <br><br>
+    <button onclick="stopClock();">디지털 시계 Off</button> <br><br>
+    <div id="clockArea" style="background-color: #ccc; width: 300px; height: 100px; font-size: 65px; border: 1px solid black; color: black;">
+
+    </div>
+    <hr>
+    <h3>navigator 객체</h3>
+    <p>
+        웹 페이지를 실행하고 있는 브라우저에 대한 정보를 가지고 있는 객체
+    </p>
+    <button onclick="checkNavigator();"> navigation객체 확인</button>
+    <h3>screen 객체</h3>
+    <p>
+        웹 브라우저 화면이 아닌 운영체제 화면의 속성을 가진 객체
+    </p>
+    <button onclick="checkScreen();"> screen객체 확인</button>
+    <h3>location 객체</h3>
+    <p>
+        브라우저 주소 표시줄과 관련된 객체(페이지 이동)
+    </p>
+    <button onclick="jacascript:location.reload();"> location 확인</button> <br> 
+    <button onclick="checkHref();"> href 페이지 이동</button> <br>
+    <button onclick="checkAssign();"> assign 페이지 이동</button> <br>
+    <button onclick="checkReplace();"> replace 페이지 이동</button> <br>
+    <h3>history 객체</h3>
+    <p>
+        현재 창에서 사용자의 방문 기록을 저장함. <br>
+        뒤로가기, 앞으로가기, 새로고침 기능.
+    </p>
+    <button onclick="javascript:console.log(history);">history 객체</button> <br>
+    <button onclick="goback();"> 뒤로가기 확인</button> <br>
+    <script>
+        function callAlert() {
+            alert("callAlert");
+        }
+        function callConfirm() {
+            var check = confirm("확인하시겠습니까?");
+            console.log(check);
+        }
+        function callPrompt() {
+            var data = prompt("데이터를 입력해주세요.");
+            console.log(data);
+        }
+        var myWindow = null;
+        function callOpen() {
+            myWindow = open("./02.JS_DOM.html","pop","width=500, height=400");
+        }
+        var callClose = function() {
+            myWindow.close();
+        }
+        function callTimeOut() {
+            window.setTimeout(function() {
+                myWindow.close();
+            },3000); // 3s후 지연작동
+        }
+        function callInterval() {
+            eInterval = setInterval(function() {
+                console.log(1);
+            },1000)
+        }
+        function callClear() {
+            clearInterval(eInterval);
+        };
+        var clockObj = null;
+        function startClock() {
+            var divTag = document.querySelector("#clockArea");
+            clockObj = setInterval(function() {
+                var timeData = new Date();
+                divTag.innerHTML = timeData.getHours() + ":" + timeData.getMinutes() + ":" + timeData.getSeconds();
+            },1000);
+        }
+        function stopClock() {
+            clearInterval(clockObj);
+        }
+        function checkNavigator() {
+            // console.log(navigator);
+            // console.log(navigator.userAgent);
+            // Mozilla/5.0 (Windows NT 10.0; Win64; x64) 
+            // AppleWebKit/537.36 (KHTML, like Gecko) 
+            // Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0
+        }
+        function checkScreen() {
+            console.log(screen);
+        }
+        function checkHref() {
+            // 페이지 이동
+            location.href = "http://www.iei.or.kr";
+        }
+        function checkAssign () {
+            // 페이지 이동(파라미터 이용)
+            location.assign ("http://www.iei.or.kr");
+        }
+        function checkReplace() {
+            // 페이지 이동(전달값, 파라미터 이용)
+            location.replace ("http://www.iei.or.kr");
+        }
+        function goback() {
+            //go() 새로고침, go(-1) 뒤로가기, go(1) 앞으로가기
+            location.href= "./05.JS_Function.html";
+        }
+    </script>
+</body>
+</html>

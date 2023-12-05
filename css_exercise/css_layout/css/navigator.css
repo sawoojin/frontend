@@ -1,0 +1,89 @@
+.header {
+    width: 100%;
+    height: 100px;
+}
+    .header-layout1 {
+        float: left;
+        height: 100%;
+        width: 20%;
+        /* background-color: beige; */
+        display: flex;
+        /* align-items: stretch; */
+    }
+        .header-layout1 img {
+            width: 100%;
+            height: auto;
+            /* display: block; 이미지 간격 문제를 방지하기 위해 display 속성을 block으로 설정 */
+            /* margin: 0 auto; 이미지를 수평 가운데 정렬 */
+        }
+    .header-layout2 {
+        float: left;
+        height: 100%;
+        width: 60%;
+        background-color: gold;
+        display: flex;
+    }
+        /* .header-layout2 {
+            
+        } */
+    .header-layout3 {
+        float: left;
+        height: 100%;
+        width: 20%;
+        /* background-color: aquamarine; */
+    }
+.nav {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(159, 216, 204);
+}
+    .nav :nth-child(1) {
+        width: 25%;
+        height: 100%;
+        float: left;
+        text-align: center;
+    }
+    .nav :nth-child(2) {
+        width: 25%;
+        height: 100%;
+        float: left;
+        text-align: center;
+    }
+    .nav :nth-child(3) {
+        width: 25%;
+        height: 100%;
+        float: left;
+        text-align: center;
+    }
+    .nav :nth-child(4) {
+        width: 25%;
+        height: 100%;
+        float: left;
+        text-align: center;
+    }
+.main {
+    width: 100%;
+    height: 500px;
+}
+    .main-layout1 {
+        float: left;
+        height: 100%;
+        width: 15%;
+        background-color: cadetblue;
+    }
+    .main-layout2 {
+        float: left;
+        height: 100%;
+        width: 60%;
+    }
+    .main-layout3 {
+        float: left;
+        height: 100%;
+        width: 25% ;
+        background-color: chartreuse;
+    }
+.footer {
+    width: 100%;
+    height: 100px;
+    background-color: aqua;
+}

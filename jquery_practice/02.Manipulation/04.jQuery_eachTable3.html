@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery each() 메소드4</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+        }
+        fieldset {
+            width: 500px;
+            height: 200px;
+        }
+        .title {
+            background-color: black;
+            color: white;
+        }
+        .name {
+            background-color: #ffbe0b;
+        }
+        .age {
+            background-color: #Fb5607;
+        }
+        .addr {
+            background-color: #ff006e;
+        }
+        #result {
+            border : 3px solid red;
+            height: 200px;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>체크</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="" id=""></td>
+            <td>홍길동</td>
+            <td>20</td>
+            <td>서울시</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="" id=""></td>
+            <td>고길동</td>
+            <td>30</td>
+            <td>경기도</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="" id=""></td>
+            <td>최길동</td>
+            <td>40</td>
+            <td>화성시</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="" id=""></td>
+            <td>상길동</td>
+            <td>50</td>
+            <td>부천시</td>
+        </tr>
+    </table>
+    <hr>
+    <label for="">출력</label>
+    <div id="result"></div>
+    <button id="print">출력</button>
+    <script>
+        // $("input[type='checkbox']").eq(0).on("change", function() {
+        //     if ($(this).is(":checked")) {
+        //         $("td").eq(1).addClass("name");
+        //         $("td").eq(2).addClass("age");
+        //         $("td").eq(3).addClass("addr");
+        //     } else {
+        //         $("td").eq(1).removeClass("name");
+        //         $("td").eq(2).removeClass("age");
+        //         $("td").eq(3).removeClass("addr");
+        //     };
+        // });
+        // $("#print").on("click", function() {
+        //     var display = "";
+        //     $("td").each(function(index, item) {
+        //         if(index % 4 === 0 && $(item).is(":checked")) {
+
+        //             if(index % 4 !== 0) {
+        //                 display += $(item).html();
+        //             };
+        //             if(index % 4 === 3) {
+        //                 display += "<br>"
+        //             } else {
+        //                 display += ",";
+        //             };
+                    
+        //         }
+        //     });
+        //     $("#result") = display;
+        // })
+        $("#print").on("click",function(){
+            var display = "";
+            var flag = false;
+            $("tr").each(function(index, item){
+                if(index > 0){
+                    var tdTag = $(item).children();
+                    var checkbox = tdTag.first().children();
+                    if(checkbox.is(":checked")) {
+                        var name = tdTag.eq(1).text();
+                        var age = tdTag.eq(2).text();
+                        var addr = tdTag.eq(3).text();
+                        display += name + ", " + age + ", " + addr + "<br>";
+                    };
+                };
+            });
+            $("#result").html(display);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팩토리얼 계산하기</title>
+    <style>
+        div,h1 {text-align: center;}
+    </style>
+</head>
+<body>
+    <h1>while 문을 사용한 팩토리얼 계산</h1>
+    <div id="printOne"></div>
+    <script>
+        // 숫자를 입력하세요 기본값은 10
+        var inputNum = prompt("숫자를 입력하세요.", 10);
+        var result = 1;
+        for(var i = 1; i <= inputNum; i++) {
+            result = result * i;
+        }
+        var divTag = document.querySelector("#printOne");
+        divTag.innerHTML = inputNum +"! = "+ result;
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        div:not(#textCount, #check-item) {
+            width: 100px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="div-hover"></div>
+    <h3>클릭 / 더블클릭</h3>
+    <p id="click">just click</p>
+    <p id="dbclick">doble click</p>
+    <h3>마우스 업/다운 이벤트</h3>
+    <div id="div-updown"></div>
+    <h3>마우스 무브 이벤트</h3>
+    <span id="span1"></span>
+    <h3>키업/</h3>
+    <h1>입력 양식(form)</h1>
+    <h3>submit / focus / blur 이벤트</h3>
+    <form action="#" id="my-form">
+        ID : <input type="text" name="userId" id="userId"> <br>
+        PW : <input type="text" name="userPw" id="userPw"> <br>
+        <input type="submit" value="제출">
+        <input type="reset" value="취소">
+    </form>
+    <h3>change 이벤트</h3>
+    <p>
+        input태그의 type 속성이 checkbox, radio인 input태그와 select태그의 상태 변경을 감지하는 이벤트
+    </p>
+    전체 <input type="checkbox" name="allCheck" id="allCheck">
+    <div id="check-item">
+        <input type="checkbox" name="" id="">
+        <input type="checkbox" name="" id="">
+        <input type="checkbox" name="" id="">
+    </div>
+    <h3>이벤트 버블링 막기 및 기본 이벤트 제거</h3>
+    <p>
+        stopPropagation() : 이벤트 전달 제거 <br>
+        preventDefault() : 기본 이벤트 제거
+    </p>
+    <h1 id="h1-click">
+        <span id="span-click">click</span>
+    </h1>
+    <h1>
+        <a href="http://www.iei.or.kr" target="_blank">KH 정보교육원</a>
+    </h1>
+    <script>
+        $("#div-hover").on("mouseover", function() {
+            $(this).css("background-color", "red");
+        });
+        $("#click").on("click", function() {
+            $("#div-hover").css("background-color", "red");
+        });
+        $("#dbclick").on("dblclick", function() {
+            $("#div-hover").css("background-color", "blue");
+        });
+        $("#div-updown").on("mousedown", function() {
+            $("#div-hover").css("background-color", "red");
+        });
+        $("#div-updown").on("mousemove", function() {
+            $("#span1").html("<br> x : " + event.pageX + ", y : " + event.pageY)
+        });
+        $("#my-form").on("submit", function() {
+            if($("#userId").val() == "") {
+                alert("ID를 입력해주세요");
+                return false;
+            };
+            if($("#userPw").val() == "") {
+                alert("PW를 입력해주세요");
+                return false;
+            };
+        });
+        // 커서
+        $("#userId").on("focus" , function () {
+            $(this).css("background-color", "skyblue");
+        });
+        $("#userId").on("blur" , function () {
+            $(this).css("background-color", "white");
+        });
+        $("#allCheck").on("change", function() {
+            if($(this).is(":checked")) {
+                $("#check-item").children().attr("checked", true);
+            }else {
+                $("#check-item").children().removeAttr("checked");
+            };
+        });
+        $("a").on("click", function(e) {
+            e.preventDefault();
+        });
+        $("#h1-click").on("click", function() {
+            alert("h ");
+        });
+        $("#span-click").on("click", function(e) {
+            // 해당 이벤트가 부모로 전달되는 현상 막아줌
+            e.stopPropagation();
+            alert("s ");
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기 실습</title>
+</head>
+<body>
+    <h2>간이 계산기 만들기</h2>
+    첫번째 값 : <input type="text" id="input1"> <br>
+    두번째 값 : <input type="text" id="input2"> <br>
+    <button onclick="calculate('+')">+</button> 
+    <button onclick="calculate('-')">-</button> 
+    <button onclick="calculate('*')">*</button> 
+    <button onclick="calculate('/')">/</button> 
+    <button onclick="calculate('%')">%</button>
+    <br><br>
+    계산결과 : <span id="result"></span>
+    <script>
+        // var num1 = Number(document.querySelector("#input1").value);
+        // var num2 = Number(document.querySelector("#input2").value);
+        var outTag = document.querySelector("#result");
+        var result = 0;
+        function calculate(cal) {
+            var num1 = Number(document.querySelector("#input1").value);
+        var num2 = Number(document.querySelector("#input2").value);
+            switch(cal) {
+                case "+" : result = num1 + num2; break;
+            }
+            console.log(result);
+            
+        };
+    </script>
+</body>
+</html>

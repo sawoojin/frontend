@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제5</title>
+    <style>
+        ul {
+            margin: 0;
+            padding-left: 10px;
+        }
+        ul li {
+            list-style-type: none;
+            margin: 10px;
+            margin-left: 40px;
+        }
+        fieldset legend {
+            font-weight: bold;
+        }
+        input[type=number] {
+            width: 30px;
+            margin-left: 10px;
+        }
+        ul label {
+            width: 80px;
+            float: left;
+            text-align: left;
+        }
+        input[type=text], input[type=email] {
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <h1>레드향 주문하기</h1>
+    <form action=""></form>
+    <fieldset>
+        <legend>상품 선택</legend>
+        <p>주문할 상품을 선택해 주세요.</p>
+        <ul class="order-main">
+            <li>
+                <input type="checkbox">선물용 3kg 
+                <input type="number" min="0" max="5" value="0">개
+                <small>(최대 5개)</small>
+            </li>
+            <li>
+                <input type="checkbox">선물용 5kg 
+                <input type="number" min="0" max="3" value="0">개
+                <small>(최대 3개)</small>
+            </li>
+            <li>
+                <input type="checkbox">가정용 3kg 
+                <input type="number" min="0" max="5" value="0">개
+                <small>(최대 5개)</small>
+            </li>
+            <li>
+                <input type="checkbox">가정용 5kg 
+                <input type="number" min="0" max="3" value="0">개
+                <small>(최대 3개)</small>
+            </li>
+        </ul>
+        <p>포장 선택</p>
+        <ul>
+            <li><input type="radio" name="wrapping">선물포장</li>
+            <li><input type="radio" name="wrapping">선물포장안함</li>
+        </ul>
+    </fieldset>
+    <form action="" method="">
+        <fieldset>
+            <legend>배송 정보</legend>
+            <ul class="info-main">
+                <li>
+                    <label for="user-name">이름</label>
+                    <input type="text" id="user-name"><br>
+                </li>
+                <li>
+                    <label for="address">배송주소</label>
+                    <input type="text" id="address"><br>
+                </li>
+                <li>
+                    <label for="user-email">이메일</label>
+                    <input type="email" id="user-email"><br>
+                </li>
+                <li>
+                    <label for="phone-number">연락처</label>
+                    <input type="text" id="phone-number" placeholder="하이픈 빼고 입력해주세요 (01012345678)"><br>
+                </li>
+                <li>
+                    <label for="d-day">배송지정</label>
+                    <input type="date" id="d-day">(주문일로부터 최소 3일 이후)
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+    <input type="submit" value="주문"></input>
+    <input type="reset" value="취소"></input>
+</body>
+</html>
