@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 리플리</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        $(function () {
+            $("#addReply").on("click", function() {
+                var comment = $("#comment").val();
+                $("#reply").append("<tr><td>" + 1 + "</td><td>" + comment + "</td><td>khuser</td><td><button onclick='modifyView("+ comment +");'>수정</button></td></tr>");
+            });
+        });
+        function modifyView() {
+            $("#reply").append("<tr><td colspan='3'>" + "<input type='text' value="+ comment +"></td><td><button>완료</button></td></tr>");
+        };
+    </script>
+    <table>
+        <tr>
+            <input type="text" name="" id="comment">
+            <input type="button" value="작성" id="addReply">
+        </tr>
+    </table>
+    <hr>
+    <table id="reply">
+        <colgroup>
+            <col>
+            <col width="200">
+            <col>
+            <col>
+        </colgroup>
+        <tr>
+            <td>제목</td>
+            <td>내용</td>
+            <td>작성자</td>
+            <td>비고</td>
+        </tr>
+    </table>
+</body>
+</html>
